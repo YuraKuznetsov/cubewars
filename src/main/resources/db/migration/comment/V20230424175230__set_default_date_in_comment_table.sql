@@ -1,0 +1,2 @@
+ALTER TABLE comment
+ALTER COLUMN date SET DEFAULT now();

@@ -1,0 +1,51 @@
+@import "reset.scss";
+@import "general.scss";
+@import "navbar.scss";
+
+.my-container {
+    max-width: 64rem;
+}
+
+.block {
+    background: $dark-gray-color;
+    padding: 2rem 3rem;
+    border-radius: .5rem;
+}
+
+.overall {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    &__username {
+        font-size: 2rem;
+        font-weight: 600;
+        font-style: italic;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+}
+
+.pie-chart {
+    width: 350px
+}
+
+.table {
+    color: white;
+
+    th, td {
+        color: white !important;
+        text-align: center;
+    }
+}
+
+.radio-list {
+    margin: 1.5rem 0;
+}
+
+.graph {
+    margin: 0 auto;
+    width: 100%;
+}

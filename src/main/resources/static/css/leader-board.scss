@@ -1,0 +1,82 @@
+@import "reset.scss";
+@import "general.scss";
+@import "navbar.scss";
+
+.my-container {
+    max-width: 64rem;
+}
+
+.radio-list {
+    margin: 2rem 0 1.5rem;
+}
+
+.block {
+    background: $dark-gray-color;
+    padding: 2rem 3rem;
+    border-radius: .5rem;
+}
+
+.table {
+    color: white;
+    border-color: $grey-color;
+    font-size: 1.1rem;
+
+    th, td {
+        color: white;
+    }
+
+    .rank-col {
+        width: 100px;
+    }
+
+    .ao-col, .count-col {
+        text-align: center;
+        width: 150px;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    tr.me {
+        background-image: linear-gradient(90deg, #42312c, #452225);
+    }
+}
+
+.medal-gold {
+    color: gold;
+}
+
+.medal-silver {
+    color: silver;
+}
+
+.medal-bronze {
+    color: #CD7F32;
+}
+
+.row-lowlight {
+
+    td {
+        color: $grey-color;
+    }
+}
+
+.load-btn {
+    display: inline-block;
+    background: none;
+    color: #FFF;
+    padding: 0.45rem 1.2rem 0.3rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: .875rem;
+    box-shadow: inset 0 0 0 1px #fff;
+    transition: all 0.3s;
+
+    &_hidden {
+        display: none;
+    }
+}

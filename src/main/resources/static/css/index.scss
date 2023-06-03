@@ -1,0 +1,228 @@
+@import "reset.scss";
+@import "general.scss";
+@import "navbar.scss";
+
+.header {
+    padding: 3rem 2.5rem 5rem;
+    text-align: center;
+    position: relative;
+
+    &__title {
+        font-size: 5rem;
+        font-weight: 300;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    &__gradient {
+        background-image: linear-gradient(90deg, $orange-color, $red-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        max-width: 65rem;
+        margin: 0 auto 2rem;
+    }
+
+    &__join-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        text-align: center;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        background: $red-color;
+        color: #16171b;
+        border-radius: 0.25rem;
+        letter-spacing: 0.1rem;
+        box-shadow: 0 0 20px $red-color;
+
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    &__join-msg {
+        text-align: left;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        opacity: .6;
+    }
+}
+
+.use {
+
+    &__container {
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+    }
+
+    &__head {
+        max-width: 40rem;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 3rem;
+    }
+
+    &__title {
+        font-size: 3.625rem;
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+    }
+
+    &__remark {
+        font-size: 1.5rem;
+        color: $grey-color;
+    }
+
+    &__variants {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+.use-card {
+    width: 100%;
+}
+
+.card {
+    border-radius: 1rem;
+    background: $dark-gray-color;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    color: white;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        background: $red-color;
+    }
+
+    &__title {
+        font-size: 1.375rem;
+        line-height: 1.25;
+        font-weight: 400;
+        margin: 1.5rem 0 1rem;
+    }
+
+    &__text {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+}
+
+
+@media screen and (max-width: $medium-screen) {
+    .header {
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+
+        &__title {
+            font-size: 3.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &__text {
+            font-size: 1.25rem;
+        }
+
+        &__animation {
+            opacity: .1;
+        }
+    }
+
+    .use {
+
+        &__title {
+            font-size: 2.4rem;
+        }
+
+        &__head {
+            padding-bottom: 3rem;
+        }
+
+        &__title {
+            margin-bottom: 1.5rem;
+        }
+
+        &__variants {
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: $small-screen) {
+    .header {
+        padding: 1.5rem 2rem 3rem;
+
+        &__title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &__button {
+            padding: 0.8rem 1.5rem;
+        }
+
+        &__animation {
+            justify-content: center;
+            opacity: .08;
+        }
+    }
+
+    #second-cube {
+        display: none;
+    }
+
+    .use {
+
+        &__container {
+            padding: 0 1.25rem;
+        }
+
+        &__head {
+            padding-bottom: 2rem;
+        }
+
+        &__title {
+            font-size: 2.1rem;
+            margin-bottom: 1rem;
+        }
+
+        &__remark {
+            font-size: 1rem;
+        }
+    }
+
+    .card {
+        padding: 1.25rem;
+
+        &__title {
+            font-size: 1.2rem;
+        }
+
+        &__text {
+            font-size: 1rem;
+        }
+    }
+}

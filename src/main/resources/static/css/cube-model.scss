@@ -1,0 +1,110 @@
+@import "general.scss";
+
+$side-height-percents: 32.3%;
+$side-width-percents: 24%;
+
+$height-spacing-percents: 32.3% + 1.33%;
+$width-spacing-percents: 24% + 1.5%;
+
+.cube {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    opacity: .8;
+
+    &__side {
+        position: absolute;
+        height: $side-height-percents;
+        width: $side-width-percents;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        border: 1px solid black;
+    }
+
+    &__detail {
+        border: 1px solid black;
+
+        &.two {
+            width: 50%;
+            height: 50%;
+        }
+
+        &.three {
+            width: 33.3%;
+            height: 33.3%;
+        }
+
+        &.four {
+            width: 25%;
+            height: 25%;
+        }
+
+        &.five {
+            width: 20%;
+            height: 20%;
+        }
+
+        &.six {
+            width: 16.66%;
+            height: 16.66%;
+        }
+
+        &.seven {
+            width: 14.28%;
+            height: 14.28%;
+        }
+    }
+}
+
+#top-side {
+    top: 0;
+    left: $width-spacing-percents;
+}
+
+#front-side {
+    top: $height-spacing-percents;
+    left: $width-spacing-percents;
+}
+
+#bottom-side {
+    bottom: 0;
+    left: $width-spacing-percents;
+}
+
+#left-side {
+    top: $height-spacing-percents;
+    left: 0;
+}
+
+#right-side {
+    top: $height-spacing-percents;
+    right: $width-spacing-percents;
+}
+
+#back-side {
+    top: $height-spacing-percents;
+    right: 0;
+}
+
+.white {
+    background: #FFF5EE;
+}
+.red {
+    background: #FF0000;
+}
+.green {
+    background: #008000;
+}
+
+.orange {
+    background: #FF8C00;
+}
+
+.yellow {
+    background: #FFD700;
+}
+
+.blue {
+    background: #0000CD;
+}

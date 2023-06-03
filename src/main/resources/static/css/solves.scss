@@ -1,0 +1,111 @@
+@import "reset.scss";
+@import "general.scss";
+@import "navbar.scss";
+@import "modal.scss";
+@import "cube-model";
+
+
+.radio-list {
+    padding: 2rem 0;
+}
+
+.solve-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.solve {
+    border-radius: .5rem;
+    padding: .5rem .8rem .3rem;
+    min-width: 7rem;
+    box-shadow: 0 0 0 2px $grey-color;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        font-size: .7rem;
+    }
+
+    &__date {
+
+    }
+
+    &__plus {
+        font-weight: bold;
+    }
+
+    &__time {
+        text-align: center;
+    }
+}
+
+.attention {
+    color: $orange-color;
+}
+
+.load-btn {
+    display: inline-block;
+    background: none;
+    color: #FFF;
+    padding: 0.5rem 1.25rem 0.35rem;
+    margin-top: 3rem;
+    border-radius: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    box-shadow: inset 0 0 0 1px #fff;
+    transition: all 0.3s;
+
+    &_hidden {
+        display: none;
+    }
+}
+
+.solve-modal {
+    width: 33rem;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__time {
+        display: flex;
+        align-items: baseline;
+        column-gap: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+
+        span {
+            color: $red-color;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__date {
+        font-size: 1.5rem;
+    }
+
+    &__middle {
+        padding: 1.5rem 0;
+    }
+
+    &__scramble {
+        word-spacing: 3px;
+        letter-spacing: 1px;
+        text-align: center;
+        font-size: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    &__cube-scene {
+        height: 11rem;
+        width: 11rem * 1.334;
+        margin: 0 auto;
+    }
+
+    &__bottom {
+    }
+}

@@ -1,0 +1,114 @@
+@import "reset.scss";
+@import "general.scss";
+
+main {
+    padding-top: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    padding: 1.5rem 1.5rem 1.5rem;
+    background: $dark-gray-color;
+    width: 22rem;
+    border-radius: .5rem;
+}
+
+.auth-form {
+
+    &__logo {
+        display: block;
+        width: 100%;
+        color: #fff;
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+
+        i {
+            color: #bb432c;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__fields {
+        border-radius: .375rem;
+        box-shadow: 0 0 0 .4px $grey-color;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        background: #bb432c;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: .2px;
+        font-size: 1.1rem;
+        line-height: 1rem;
+        border-radius: .5rem;
+        padding: .5rem .75rem;
+        margin-top: 1.5rem;
+
+        &:hover {
+            background: #cf4b32;
+        }
+
+        &:focus {
+            background: #d45d46;
+        }
+    }
+
+    &__info {
+        font-size: .85rem;
+        line-height: 1;
+        text-align: center;
+        padding-top: 1.5rem;
+        color: $grey-color;
+        
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    align-items: baseline;
+    padding: .5rem .75rem;
+    color: $grey-color;
+    line-height: 1;
+    font-size: 1.1rem;
+
+    &__icon {
+
+    }
+
+    input {
+        padding-left: 1rem;
+        background: $dark-gray-color;
+        width: 100%;
+        color: $grey-color;
+        line-height: 1.25rem;
+        font-size: 1.1rem;
+        flex-grow: 1;
+
+        &:focus {
+            color: white;
+        }
+    }
+}
+
+.round-top {
+    border-top-left-radius: .375rem;
+    border-top-right-radius: .375rem;
+}
+
+.round-bottom {
+    border-bottom-left-radius: .375rem;
+    border-bottom-right-radius: .375rem;
+}
+
+.line-bottom {
+    box-shadow: 0 .4px .4px $grey-color;
+}
