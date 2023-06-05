@@ -33,6 +33,12 @@ dependencies {
     implementation 'com.itextpdf:itextpdf:5.5.13.2'
 }
 
+bootJar {
+    manifest {
+        attributes 'Main-Class': 'org.geekhub.yurii.CubewarsApplication'
+    }
+}
+
 test {
     useJUnitPlatform()
 }
