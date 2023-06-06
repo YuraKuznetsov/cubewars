@@ -19,7 +19,7 @@ public class UserRepository {
 
     public Optional<User> findByUsername(String username) {
         String sql = "SELECT user_id, email, username, password, role_name as role " +
-                     "FROM (SELECT * FROM public.user WHERE username = :username) as u " +
+                     "FROM (SELECT * FROM \"user\" WHERE username = :username) as u " +
                      "    JOIN role r ON u.role_id = r.role_id ";
 
         List<User> users = template.query(sql, Map.of("username", username), new UserRowMapper());
@@ -30,7 +30,7 @@ public class UserRepository {
     }
 
     public void save(User user) {
-        String sql = "INSERT INTO public.user (email, username, password, role_id) " +
+        String sql = "INSERT INTO \"user\" (email, username, password, role_id) " +
                      "VALUES (:email, :username, :password, (SELECT role_id FROM role WHERE role_name = :role))";
 
         Map<String, Object> parameters = new HashMap<>();
@@ -44,14 +44,14 @@ public class UserRepository {
 
     public List<User> getAll() {
         String sql = "SELECT user_id, email, username, password, role_name as role " +
-                     "FROM public.user as u" +
+                     "FROM \"user\" as u" +
                      "    JOIN role r ON u.role_id = r.role_id ";
 
         return template.query(sql, new UserRowMapper());
     }
 
     public Integer getCount() {
-        return template.queryForObject("SELECT COUNT(*) FROM public.user", Map.of(), Integer.class);
+        return template.queryForObject("SELECT COUNT(*) FROM \"user\"", Map.of(), Integer.class);
     }
 }
 

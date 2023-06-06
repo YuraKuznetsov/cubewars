@@ -17,15 +17,15 @@ public class LikeRepository {
 
     public List<Like> getLikesForNews(Integer newsId) {
         String sql = "SELECT like_id, news_id, username " +
-                     "FROM (SELECT * FROM public.like WHERE news_id = :news_id) l " +
-                     "    JOIN public.user u ON l.user_id = u.user_id ";
+                     "FROM (SELECT * FROM \"like\" WHERE news_id = :news_id) l " +
+                     "    JOIN \"user\" u ON l.user_id = u.user_id ";
 
         return template.query(sql, Map.of("news_id", newsId), new LikeRowMapper());
     }
 
     public void create(Like like) {
-        String sql = "INSERT INTO public.like (news_id, user_id) " +
-                     "VALUES (:news_id, (SELECT user_id FROM public.user WHERE username = :username))";
+        String sql = "INSERT INTO \"like\" (news_id, user_id) " +
+                     "VALUES (:news_id, (SELECT user_id FROM \"user\" WHERE username = :username))";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("news_id", like.getNewsId());
@@ -35,9 +35,9 @@ public class LikeRepository {
     }
 
     public void delete(Like like) {
-        String sql = "DELETE FROM public.like " +
+        String sql = "DELETE FROM \"like\" " +
                      "WHERE news_id = :news_id AND " +
-                     "      user_id = (SELECT user_id FROM public.user WHERE username = :username)";
+                     "      user_id = (SELECT user_id FROM \"user\" WHERE username = :username)";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("news_id", like.getNewsId());
@@ -48,9 +48,9 @@ public class LikeRepository {
 
     public Boolean isDuplicatedLike(Like like) {
         String sql = "SELECT COUNT(*) " +
-                     "FROM public.like " +
+                     "FROM \"like\" " +
                      "WHERE news_id = :news_id AND " +
-                     "      user_id = (SELECT user_id FROM public.user WHERE username = :username)";
+                     "      user_id = (SELECT user_id FROM \"user\" WHERE username = :username)";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("news_id", like.getNewsId());

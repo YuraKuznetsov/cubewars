@@ -24,7 +24,7 @@ public class NewsRepository {
     public List<News> getNewsList(Pageable pageable) {
         String sql = "SELECT news_id, username, title, content, date " +
                      "FROM news " +
-                     "    JOIN public.user u ON u.user_id = news.user_id " +
+                     "    JOIN \"user\" u ON u.user_id = news.user_id " +
                      "ORDER BY date " + pageable.getDirection() + " " +
                      "LIMIT :limit " +
                      "OFFSET :offset";
@@ -42,7 +42,7 @@ public class NewsRepository {
 
     public Integer create(NewsCreateDTO newsCreateDTO) {
         String sql = "INSERT INTO news (user_id, title, content) " +
-                     "VALUES ((SELECT user_id FROM public.user WHERE username = :username), " +
+                     "VALUES ((SELECT user_id FROM \"user\" WHERE username = :username), " +
                      "        :title, " +
                      "        :content)";
 
@@ -61,7 +61,7 @@ public class NewsRepository {
     public Optional<News> find(Integer id) {
         String sql = "SELECT news_id, username, title, content, date " +
                      "FROM (SELECT * FROM news WHERE news_id = :id) n " +
-                     "    JOIN public.user u ON u.user_id = n.user_id";
+                     "    JOIN \"user\" u ON u.user_id = n.user_id";
 
         List<News> news = template.query(sql, Map.of("id", id), new NewsRowMapper());
 

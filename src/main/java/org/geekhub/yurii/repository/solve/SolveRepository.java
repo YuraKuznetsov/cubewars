@@ -27,7 +27,7 @@ public class SolveRepository {
                      "       scramble, " +
                      "       date " +
                      "FROM (SELECT * FROM solve WHERE solve_id = :id) s" +
-                     "    JOIN public.user u ON s.user_id = u.user_id " +
+                     "    JOIN \"user\" u ON s.user_id = u.user_id " +
                      "    JOIN discipline d ON d.discipline_id = s.discipline_id " +
                      "    JOIN status stat ON stat.status_id = s.status_id ";
 
@@ -49,7 +49,7 @@ public class SolveRepository {
                      "FROM solve s " +
                      "    JOIN discipline d ON d.discipline_id = s.discipline_id " +
                      "    JOIN status stat ON stat.status_id = s.status_id " +
-                     "    JOIN public.user u on u.user_id = s.user_id " +
+                     "    JOIN \"user\" u on u.user_id = s.user_id " +
                      "WHERE discipline_name = :discipline AND " +
                      "      username = :username " +
                      "ORDER BY date";
@@ -67,7 +67,7 @@ public class SolveRepository {
                      "       discipline_name as discipline, " +
                      "       scramble, " +
                      "       date " +
-                     "FROM (SELECT user_id, username FROM public.user WHERE username = :username) u " +
+                     "FROM (SELECT user_id, username FROM \"user\" WHERE username = :username) u " +
                      "    JOIN solve s ON u.user_id = s.user_id" +
                      "    JOIN discipline d ON d.discipline_id = s.discipline_id " +
                      "    JOIN status stat ON stat.status_id = s.status_id " +
@@ -87,7 +87,7 @@ public class SolveRepository {
 
     public void save(Solve solve) {
         String sql = "INSERT INTO solve (user_id, time, status_id, discipline_id, scramble) " +
-                     "VALUES ((SELECT user_id FROM public.user WHERE username = :username), " +
+                     "VALUES ((SELECT user_id FROM \"user\" WHERE username = :username), " +
                      "        :time, " +
                      "        (SELECT status_id FROM status WHERE status_name = :status), " +
                      "        (SELECT discipline_id FROM discipline WHERE discipline_name = :discipline), " +
@@ -126,7 +126,7 @@ public class SolveRepository {
 
     public Integer getCountForUser(String username, Discipline discipline) {
         String sql = "SELECT COUNT(*) " +
-                     "FROM (SELECT user_id FROM public.user WHERE username = :username) u " +
+                     "FROM (SELECT user_id FROM \"user\" WHERE username = :username) u " +
                      "    JOIN solve s ON u.user_id = s.user_id" +
                      "    JOIN discipline d on d.discipline_id = s.discipline_id " +
                      "WHERE discipline_name = :discipline";

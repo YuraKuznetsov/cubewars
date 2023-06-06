@@ -23,7 +23,7 @@ public class CommentRepository {
     public List<Comment> getCommentsForNews(Integer newsId) {
         String sql = "SELECT comment_id, news_id, username, content, date " +
                      "FROM (SELECT * FROM comment WHERE news_id = :news_id) c " +
-                     "    JOIN public.user u ON c.user_id = u.user_id " +
+                     "    JOIN \"user\" u ON c.user_id = u.user_id " +
                      "ORDER BY date";
 
         return template.query(sql, Map.of("news_id", newsId), new CommentRowMapper());
@@ -32,7 +32,7 @@ public class CommentRepository {
     public Integer create(CommentCreateDTO commentCreateDTO) {
         String sql = "INSERT INTO comment (news_id, user_id, content) " +
                      "VALUES (:news_id, " +
-                     "        (SELECT user_id FROM public.user WHERE username = :username), " +
+                     "        (SELECT user_id FROM \"user\" WHERE username = :username), " +
                      "        :content)";
 
         Map<String, Object> parameters = new HashMap<>();
@@ -50,7 +50,7 @@ public class CommentRepository {
     public Integer getCommentsCountInLastMinute(String username) {
         String sql = "SELECT COUNT(*) " +
                      "FROM comment " +
-                     "    JOIN public.user u ON comment.user_id = u.user_id " +
+                     "    JOIN \"user\" u ON comment.user_id = u.user_id " +
                      "WHERE username = :username AND " +
                      "      date > now() - interval '1 minute'";
 
@@ -75,7 +75,7 @@ public class CommentRepository {
     public Optional<Comment> find(Integer id) {
         String sql = "SELECT comment_id, news_id, username, content, date " +
                      "FROM (SELECT * FROM comment WHERE comment_id = :id) c " +
-                     "    JOIN public.user u ON u.user_id = c.user_id";
+                     "    JOIN \"user\" u ON u.user_id = c.user_id";
 
         List<Comment> comments = template.query(sql, Map.of("id", id), new CommentRowMapper());
 

@@ -2,7 +2,7 @@ SELECT u.username,
        s.time AS best_time,
        stat.status_name AS status,
        s.date
-FROM public.user u
+FROM "user" u
      JOIN (SELECT user_id,
                   MIN(EXTRACT(epoch FROM (time::time))) AS best_solve_time
            FROM solve
