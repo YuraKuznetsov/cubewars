@@ -45,6 +45,10 @@ function showPage() {
                 $solvesList.append(createSolveDiv(solve));
             }
 
+            if ($solvesList.children().length === 0) {
+                $solvesList.text("Nothing here...");
+            }
+
             if (page["hasNext"]) {
                 $loadBtn.removeClass("load-btn_hidden");
             } else {
