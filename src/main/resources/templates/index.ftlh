@@ -66,7 +66,7 @@
                             View statistic
                         </div>
                         <div class="card__text">
-                            We save and analyze all your attempts, so you can understand whether you made good progress or deteriorated your results
+                            We save and analyze all your attempts, so you can understand whether you made good progress or deteriorated your results.
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                             Compete with cubers
                         </div>
                         <div class="card__text">
-                            Organize local competitions with friends or compete in official tournaments with cubers from around the world
+                            Use our leaderboard to watch your competitors, gain inspiration from the fastest cubers, and set your sights on reaching the top.
                         </div>
                     </div>
                 </div>
