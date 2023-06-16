@@ -3,9 +3,10 @@ package org.geekhub.yurii.repository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.FileCopyUtils;
 
 import java.io.IOException;
-import java.nio.file.Files;
+import java.nio.charset.StandardCharsets;
 
 @Component
 public class SqlReader {
@@ -15,7 +16,8 @@ public class SqlReader {
 
         try {
             Resource resource = new ClassPathResource(path);
-            return new String(Files.readAllBytes(resource.getFile().toPath()));
+            byte[] bytes = FileCopyUtils.copyToByteArray(resource.getInputStream());
+            return new String(bytes, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException("Error while reading " + path, e);
         }
