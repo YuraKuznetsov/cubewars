@@ -1,7 +1,5 @@
 # Cubewars
 
-Try it - https://cubewars.up.railway.app
-
 "Cubewars" is a client-server application built using HTML, SCSS,
 and JS for the front-end, and Java on the server-side with a
 PostgreSQL database for data storage.
